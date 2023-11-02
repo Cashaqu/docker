@@ -15,7 +15,7 @@ def ceasar_cipher(text, shift, alphabet, decryption=False):
             output += text[x]
     return output
 
-# to torch tensor function
+
 def to_torch(text, sen_len, dictionary):
     X = torch.zeros((len(text), sen_len), dtype=int)
     for i in range(len(text)):

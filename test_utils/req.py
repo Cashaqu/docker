@@ -1,6 +1,6 @@
 import requests
 import json
-from Ceasar.ceasar_algorithms import ceasar_cipher, shift, alphabet
+from ceasar.ceasar_algorithms import ceasar_cipher, shift, alphabet
 
 
 url = 'http://localhost:8000/prediction'
@@ -16,3 +16,5 @@ def test_post_ceasar(url):
     prediction_output = response.json()
 
     print(f'Prediction text:    {prediction_output["text"]}')
+
+test_post_ceasar(url)

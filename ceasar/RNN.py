@@ -1,6 +1,5 @@
 import torch.nn
-from Ceasar.ceasar_algorithms import dict_char
-
+from ceasar.ceasar_algorithms import dict_char
 
 class RNN(torch.nn.Module):
     def __init__(self):

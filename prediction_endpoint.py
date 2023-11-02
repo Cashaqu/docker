@@ -1,10 +1,9 @@
 from fastapi import FastAPI
 import torch
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 from pydantic import BaseModel
 import contextlib
-from Ceasar.RNN import RNN
-from Ceasar.prediction_func import prediction
+from ceasar.RNN import RNN
+from ceasar.prediction_func import prediction
 
 
 class PredictionInput(BaseModel):
@@ -18,9 +17,8 @@ class RNN_model:
         self.model = None
 
     def load_model(self):
-        model_file = "./model/best_model_ceasar.pt"  # Adjust the path to your model file
+        model_file = "trained_model/best_model_ceasar.pt"
         model = RNN()
-        #model.load_state_dict(torch.load(model_file))
         model.load_state_dict(torch.load(model_file, map_location=torch.device('cpu')))
         model.eval()
         self.model = model #.to(device)
